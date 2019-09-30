@@ -6,7 +6,7 @@ public class DotComBust {
     int numOfGuesses = 0;
 
     private void setUpGame() {
-        DotCom one = new DotCom();  // Создаем 3 корабля, даем им имена, помещаем их в ArrayList
+        DotCom one = new DotCom();                      // Создаем 3 корабля, даем им имена, помещаем их в ArrayList
         one.setName("Pets.com");
         DotCom two = new DotCom();
         two.setName("eToy.com");
@@ -25,14 +25,14 @@ public class DotComBust {
             dotCom.setLocationCells(newLocation);
         }
     }
-    private void startPlaying() {
+    private void startPlaying() {                    //Начинаем игру
         while (!dotComList.isEmpty()) {
             String userGuess = helper.getUserInput("Сделайте ход: ");
             checkUserGuess(userGuess);
         }
         finishGame();
     }
-    private void checkUserGuess(String userGuess) {
+    private void checkUserGuess(String userGuess) { //Проверяем пользовательский ввод на попадание
         numOfGuesses++;
         String result = "Мимо.";
         for (DotCom dotCom : dotComList) {
@@ -49,7 +49,7 @@ public class DotComBust {
         System.out.println(result);
 
     }
-    private void finishGame() {
+    private void finishGame() {                     // Заканчиваем игру и выводим отчет
         System.out.println("Все сайты ушли ко дну.");
         if (numOfGuesses <= 18) {
             System.out.println("Это заняло у Вас " + numOfGuesses + " попыток.");
