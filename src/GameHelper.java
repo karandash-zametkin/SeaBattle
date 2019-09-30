@@ -69,22 +69,14 @@ public class GameHelper {
         int column = 0;
        // System.out.println("/n");
         while (x < comSize) {
-            grid[coords[x]] = 1; //Помечаем ячейки главной сетки как использованые
-            row =  coords[x] / gridLength; //Получаем значение строки
-            column = coords[x] % gridLength; //Получаем значение столбца
-            temp = String.valueOf(ALPHABET.charAt(column)); // Преобразуем полученое в строковый символ
+            grid[coords[x]] = 1;                                //Помечаем ячейки главной сетки как использованые
+            row =  coords[x] / gridLength;                      //Получаем значение строки
+            column = coords[x] % gridLength;                    //Получаем значение столбца
+            temp = String.valueOf(ALPHABET.charAt(column));     // Преобразуем полученое в строковый символ
             alphaCells.add(temp.concat(Integer.toString(row)));
             x++;
-            System.out.println("coord " + x + " = " + alphaCells.get(x-1));
+            //System.out.println("coord " + x + " = " + alphaCells.get(x-1)); // Показываем координаты на консоли
         }
-
-
-
-
-
-
-
-
         return alphaCells;
 
     }
