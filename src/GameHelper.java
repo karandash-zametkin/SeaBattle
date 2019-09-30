@@ -8,7 +8,7 @@ public class GameHelper {
     private int gridLength = 7;
     private int gridSize = 49;
     private int[] grid = new int[gridSize];
-    public int comCount = 0;                             // Счетчик созданных сайтов
+    public int comCount = 0;                                     // Счетчик созданных сайтов
 
     public String getUserInput(String prompt) {                 //Предлагаем ввести координаты, принимаем ввод и отправляем его
         String inputLine = null;
@@ -27,7 +27,7 @@ public class GameHelper {
     }
 
     public ArrayList<String> placeDotCom(int comSize) {
-        ArrayList<String> alphaCells = new ArrayList<>();            //Хранит координаты: А3 и т.д.
+        ArrayList<String> alphaCells = new ArrayList<>();        //Хранит координаты: А3 и т.д.
         String temp = null;                                     //Временная строка для конкатенации
         int[] coords = new int[comSize];                        // Координаты текущего сайта
         int attempts = 0;                                       // Счетчик текущих попыток
@@ -47,16 +47,16 @@ public class GameHelper {
             success = true;                                     //Предполагаем успех
 
             while (success && x < comSize) {
-                if (grid[location] == 0) { // Если ячейка еще не зенята
-                    coords[x++] = location; //Сохраняем местоположение
-                    location += incr; // Пробуем следующую ячейку
-                    if (location >= gridSize) { // Выход за рамки вниз
+                if (grid[location] == 0) {                      // Если ячейка еще не зенята
+                    coords[x++] = location;                     //Сохраняем местоположение
+                    location += incr;                           // Пробуем следующую ячейку
+                    if (location >= gridSize) {                 // Выход за рамки вниз
                         success = false;
                     }
                     if (x > 0 && (location % gridLength == 0)) { //Выход за рамки вправо
                         success = false;
                     }
-                } else { // Местоположение уже занято
+                } else {                                        // Местоположение уже занято
                     //System.out.println("Используется: " + location);
                     success = false;
                 }
@@ -69,10 +69,10 @@ public class GameHelper {
         int column = 0;
        // System.out.println("/n");
         while (x < comSize) {
-            grid[coords[x]] = 1;
-            row =  coords[x] / gridLength;
-            column = coords[x] % gridLength;
-            temp = String.valueOf(ALPHABET.charAt(column));
+            grid[coords[x]] = 1; //Помечаем ячейки главной сетки как использованые
+            row =  coords[x] / gridLength; //Получаем значение строки
+            column = coords[x] % gridLength; //Получаем значение столбца
+            temp = String.valueOf(ALPHABET.charAt(column)); // Преобразуем полученое в строковый символ
             alphaCells.add(temp.concat(Integer.toString(row)));
             x++;
             System.out.println("coord " + x + " = " + alphaCells.get(x-1));
